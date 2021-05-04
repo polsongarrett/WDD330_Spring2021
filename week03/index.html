@@ -5,12 +5,94 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/week.css">
   <title>Week 03</title>
 </head>
 
 <body>
-  <h1>Week 03</h1>
+  <main>
+    <h1>Week 03</h1>  
+    
+    <section>
+      <h2>Notes</h2>
+      <h3>JavaScript: Novice to Ninja, 2nd Edition</h3>
 
+      <section>
+        <h4>Chapter 5</h4>
+        <p>
+          A variable of the Symbol type is unique. If you create two symbols with the same description they will have different values. 
+          It seems this porperty is useful for avoiding clashes with other developers' code and giving an object more than one property 
+          with the same name.
+          <br><br>
+          <p class='code'> 
+            Symbol("id") == Symbol("id") // false <br><br>
+            const person = { <br>
+              firstName: "John", <br>
+            }; <br><br>
+
+            let id = Symbol('id'); <br>
+            person[id] = 140353; <br>
+            // person[id] = 140353 <br>
+            // person.id is still undefined <br>
+          </p>
+        </p>
+
+        <p>
+          The <b>in</b> operator is useful for checking if an object has a certain porperty. The <b>hasOwnProperty()</b> method, which 
+          all JavaScript objects inherit, accomplishes the same thing. Specifically, it determins if a property that is <i>not inherited</i> 
+          belongs to an object. 
+          <p class="code">
+            'city' in person; <br>
+            << false      
+            <br><br>
+            person.hasOwnProperty('city');<br>
+            << false
+          </p>
+        </p>
+
+        <p>
+          <b>Object.keys()</b> is useful for returning an array of all the properties in an object that are <i>not inherited</i>. You could 
+          then iterate through that array with a for-of loop. 
+        </p>
+        <p>
+          <b>Object.values()</b> does the same thing except it returns an array of the values instead of the properties.
+        </p>
+        <p>
+          <b>Object.entries()</b> returns an array of key-value pairs, so it's like a combination of the previous two methods.
+        </p>
+        <p>
+          You can create functions with the same name by putting them in their own <b>namespace.</b> 
+        </p>
+<pre class="code"><code>     
+  const nameSpace = {        
+    foo() {                  
+      // code here           
+    }                        
+  };                         
+                              
+  const anotherNameSpace = { 
+    foo() {                  
+      // code here           
+    }                        
+  };                         
+                              
+  namespace.foo();           
+  anotherNameSpace.foo();    
+</code>                      
+</pre>
+        
+      </section>
+      
+    </section>
+
+    <section>
+      <h2>Code Examples</h2>
+    </section>
+  </main>
+
+  <nav >
+    <a id="back-btn" href="../index.html">Back</a>
+  </nav>
 </body>
 
 </html>

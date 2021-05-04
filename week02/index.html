@@ -16,30 +16,44 @@
     <h2>Notes</h2>
     <h3>JavaScript: Novice to Ninja, 2nd Edition</h3>
     <h4>Chapter 2</h4>
-    <p>If you assign a <span style="font-style: italic">non-primitive</span> value to a variable, then any changes to that variable 
-      are will affect all references to that variable's value: <br><br>
-    <span style="font-family: 'Courier New', Courier, monospace; background-color: lightgrey;">
-      const c = { value: 1 }; <br>
-      let d = c; // c.value = 1, d.value = 1 <br>
-      d.value = 2; // c.value = 2, d.value = 2</p>
 
-    <p>JavaScript creates wrapper objects for primitive data types, which makes it seem like primitive variable types have 
-      properties and methods.</p>
+    <p>
+      If you assign a <i>non-primitive</i> value to a variable, then any changes to that variable 
+      are will affect all references to that variable's value: 
+      <br><br>
 
-    <p>This means we can treat primitives like they are objects using dot notation. For example, every string has a length property 
-      that tells us how many characters are in the string: <br><br>
+      <p class="code">
+        const c = { value: 1 }; <br>
+        let d = c; // c.value = 1, d.value = 1 <br>
+        d.value = 2; // c.value = 2, d.value = 2
+      </p>
+    </p>
+
+    <p>
+      JavaScript creates wrapper objects for primitive data types, which makes it seem like primitive variable types have 
+      properties and methods.
+    </p>
+
+    <p>
+      This means we can treat primitives like they are objects using dot notation. For example, every string has a length property 
+      that tells us how many characters are in the string: 
+      <br><br>
       
-      <span id="code">
+      <p class="code">
         const name = 'Alexa'; // declare and assign a variable <br>
         << 'Barry' <br>
         name.length; // retrieve the name variable's length property <br>
-        << 5</span></p>
+        << 5
+      </p>
+    </p>
 
     <h4>Chapter 3</h4>
-    <p> <span style="font-weight: bold;">Destructuring arrays</span> allows us to assign multiple values at the same time, using arrays: <br><br>
-      <span id="code">
+    <p> 
+      <b>Destructuring arrays</b> allows us to assign multiple values at the same time, using arrays: <br><br>
+      <p class="code">
         const [x,y] = [1,2];
-      </span></p>
+      </p>
+    </p>
     
     <p>Maps vs. Objects</p>
     <ul>
@@ -53,14 +67,17 @@
     </ul>
 
     <h4>Chapter 4</h4>
-    <p> <i>Arguments</i> are passed when calling a function, <i>parameters</i> are set when defining a function.</p>
-    <p>The <b>rest operator</b> (...args) can be used to deal with multiple arguments by creating an array of arguments that are available inside 
-      the body of the function. It will collect all the arguments entered into an array. <br><br>
-      
-      <span id="code">
-      function rest(...args){ <br>
+    <p><i>Arguments</i> are passed when calling a function, <i>parameters</i> are set when defining a function.</p>
+    <p>
+      The <b>rest operator</b> (...args) can be used to deal with multiple arguments by creating an array of arguments that are available inside 
+      the body of the function. It will collect all the arguments entered into an array. 
+      <br><br>
+      <p class="code">
+        function rest(...args){ <br>
           return args; <br>
-      }</span></p>
+        }
+      </p>
+    </p>
 
     <p> <b>map()</b> Iterates through an array, passes each element through a callback, replaces the
       element with the returned value from the callback</p>

@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: white;
 }
 
 main {
@@ -31,13 +32,13 @@ li {
 a, a:link {
   font-family:Arial, Helvetica, sans-serif;
   padding: 15px;
-  color: white;
+  color: beige;
   background-color: green;
   text-decoration: none;
 }
 
 a:active {
-  background-color: red;
+  background-color: darkgreen;
 }
 
 a:visited {
