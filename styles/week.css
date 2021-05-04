@@ -45,9 +45,15 @@ nav {
   text-align: center;
 }
 
-.code, code {
+.code {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
+  /* font-size: 0.9rem; */
+  
   color: lightblue; 
   background-color: navy;
+}
+
+code { 
+  text-indent: -100%;
 }

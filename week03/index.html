@@ -19,37 +19,47 @@
 
       <section>
         <h4>Chapter 5</h4>
-        <p>
-          A variable of the Symbol type is unique. If you create two symbols with the same description they will have different values. 
-          It seems this porperty is useful for avoiding clashes with other developers' code and giving an object more than one property 
-          with the same name.
-          <br><br>
-          <p class='code'> 
-            Symbol("id") == Symbol("id") // false <br><br>
-            const person = { <br>
-              firstName: "John", <br>
-            }; <br><br>
 
-            let id = Symbol('id'); <br>
-            person[id] = 140353; <br>
-            // person[id] = 140353 <br>
-            // person.id is still undefined <br>
+        <div>
+          <p>
+            A variable of the Symbol type is unique. If you create two symbols with the same description they will have different values. 
+            It seems this porperty is useful for avoiding clashes with other developers' code and giving an object more than one property 
+            with the same name.
           </p>
-        </p>
 
-        <p>
-          The <b>in</b> operator is useful for checking if an object has a certain porperty. The <b>hasOwnProperty()</b> method, which 
-          all JavaScript objects inherit, accomplishes the same thing. Specifically, it determins if a property that is <i>not inherited</i> 
-          belongs to an object. 
-          <p class="code">
-            'city' in person; <br>
-            << false      
-            <br><br>
-            person.hasOwnProperty('city');<br>
-            << false
+          <!-- html displayed as code snippet -->            
+          <pre class='code'><code>
+  Symbol("id") == Symbol("id") // false 
+  const person = { 
+    firstName: "John", 
+  }; 
+
+  let id = Symbol('id'); 
+  person[id] = 140353; 
+  // person[id] = 140353 
+  // person.id is still undefined 
+          </code></pre>
+          <!-- html displayed as code snippet -->
+        </div>
+
+        <div>
+          <p>
+            The <b>in</b> operator is useful for checking if an object has a certain porperty. The <b>hasOwnProperty()</b> method, which 
+            all JavaScript objects inherit, accomplishes the same thing. Specifically, it determins if a property that is <i>not inherited</i> 
+            belongs to an object. 
           </p>
-        </p>
 
+          <!-- html displayed as code snippet -->
+          <pre class="code"><code>
+  'city' in person; 
+  << false      
+
+  person.hasOwnProperty('city');
+  << false
+            </code></pre>
+          <!-- html displayed as code snippet -->
+        </div>
+          
         <p>
           <b>Object.keys()</b> is useful for returning an array of all the properties in an object that are <i>not inherited</i>. You could 
           then iterate through that array with a for-of loop. 
@@ -60,10 +70,14 @@
         <p>
           <b>Object.entries()</b> returns an array of key-value pairs, so it's like a combination of the previous two methods.
         </p>
+
+      <div >
         <p>
           You can create functions with the same name by putting them in their own <b>namespace.</b> 
         </p>
-<pre class="code"><code>     
+
+        <!-- html displayed as code snippet -->
+        <pre class="code"><code>     
   const nameSpace = {        
     foo() {                  
       // code here           
@@ -78,11 +92,20 @@
                               
   namespace.foo();           
   anotherNameSpace.foo();    
-</code>                      
-</pre>
-        
+          </code></pre>
+        <!-- html displayed as code snippet -->
+      </div>
+
       </section>
-      
+
+      <section>
+        <h3>Other Sources</h3>
+        <p>
+          Click the button below to go to <u>https://www.sitepoint.com/everything-need-know-html-pre-element</u>, which will tell you everything
+          you should know about &lt;pre&gt;, which was useful for formatting all of the code snippets throughout my portfolio.
+        </p>
+          <a href="https://www.sitepoint.com/everything-need-know-html-pre-element/">Learn About &lt;pre&gt; Here</a>
+      </section>
     </section>
 
     <section>
