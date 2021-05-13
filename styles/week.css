@@ -58,6 +58,11 @@ nav {
   background-color: navy;
 }
 
+.btn-container {
+  margin-top: 20px; 
+  margin-bottom: 20px;
+}
+
 /* scrollbar */
 ::-webkit-scrollbar {
   width: 0px !important;

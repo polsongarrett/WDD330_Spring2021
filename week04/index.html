@@ -5,12 +5,264 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/week.css">
+  <link rel="stylesheet" href="../styles/week4.css">
   <title>Week 04</title>
 </head>
 
 <body>
-  <h1>Week 04</h1>
+  <main>
+    <h1>Week 04</h1>
 
+    <section>
+      <h2>Notes/Code Examples</h2>
+      <h3>JavaScript: Novice to Ninja, 2nd Edition</h3>
+
+      <section>
+        <h4>Chapter 8</h4>
+        <div>
+          <p><b>Forms</b> receive user input and submit it to a server. They are important for collecting information from the user.</p>
+          <ul>
+            <li>
+              Use <b>document.forms.['formName']</b> to access a form element through the DOM. Use <b>form.elements</b> to get an array
+              of child elements from a form.
+            </li>
+            <li>Forms have useful events like <b>focus, blur, submit,</b> and <b>change.</b></li>
+            <li>Forms have many different types of input fields like <b>radio buttons, checkboxes, password, telephone,</b>and many more.</li>
+            <li>
+              HTML5 includes makes it easier to <b>validate forms</b> with it's built-in API. It has attributes and properties to impose 
+              different types of requirements for input fields.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p>
+            We want to create forms that won't frustrate or confuse users, otherwise they might not fill out our forms. 
+            Click the button below to learn 58 best practices for form design.
+          </p>
+          <div class="btn-container">
+            <a href="https://www.ventureharbour.com/form-design-best-practices/">Learn best form design practices</a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h4>Chapter 12</h4>
+        <div>
+          <p>JavaScript supports <b>Object-Oriented Programming (OOP),</b> which makes it possible to implement the following principles:</p>
+          <ul>
+            <li>
+              <b>Encapsulation:</b> the concept of hiding from the user how programming functionalities work, and only letting them know
+              how to use them.
+            </li>
+            <li>
+              <b>Inheritance:</b> a feature of OOP that allows child objects to inherit properties and methods from parent objects as well as
+              possess unique properties and methods.
+            </li>
+            <li>
+              <b>Polymorphism:</b> another feature of OOP that allows child objects to override inherited properties and methods. It also 
+              permits child objects to be passed to methods that accept the parent class of those child objects.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p>
+            ES6 introduced <b>class declaration syntax</b> which makes it possible to implement class-like behavior on objects while using
+            syntax that looks like writing a class in a language like Java.
+          </p>
+
+          <!-- HTML displayed as code snippet -->
+          <pre class='code'><code>
+  class Polygon {
+    constructor(sides) {
+      this.sides = sides;  
+    }
+  }
+          </code></pre>
+          <!-- HTML displayed as code snippet -->
+        </div>
+
+        <div>
+          <p>Classes in JavaScript can have <b>static methods,</b> which are called by the class rather than an instance of the class.</p>
+          <!-- HTML displayed as code snippet -->
+          <pre class='code'><code>
+  Polygon.description();
+  << 'A shape.'
+
+  square = new Polygon(4);
+  square.description
+  << TypeError: square.description is not a function
+          </code></pre>
+          <!-- HTML displayed as code snippet -->
+        </div>
+
+        <div>
+          <p>
+            Javascript uses <b>prototypal inheritance</b> rather than classical inheritance, or inheritance through classes. They are 
+            similar but different in important ways. JavaScript doesn't really use classes, even if we use class declaration syntax. The
+            syntax is just easier to read than using a <b> constructor function.</b> To go more in depth on that, visit the link below to 
+            read a stackoverflow exchange on the topic.
+          </p>
+          <div class='btn-container'>
+            <a href='https://stackoverflow.com/questions/19633762/classical-inheritance-vs-prototypal-inheritance-in-javascript'>Prototypal vs. Classical Inheritance</a>
+          </div>
+        </div>
+
+        <p>
+          The <b>protype property</b>, which is shared by all instances of a "class", allows us to access or change the properties and
+          methods of a "class." The prototype property is extremely powerful and has a lot of different applications, so it's worth 
+          researching.
+        </p>
+
+        <div>
+          <p>
+            To make properties of a "class" private, define them inside the constructor and define their getters and setters inside the 
+            constructor as well.
+          </p>
+
+          <!-- HTML displayed as code snippet -->
+          <pre class='code'><code>
+  class Polygon {
+    constructor(sides) {
+        this.sides = sides;
+        this.setSides = sides => this.sides = sides;  
+        this.getSides = () => this.sides;
+    }
+  }
+          </code></pre>
+          <!-- HTML displayed as code snippet -->
+        </div>
+
+        <p><b>Monkey patching,</b> the adding of methods to built-in objects, is frowned upon in the Javascript community.</p>
+        <p>
+          A <b>mixin</b> allows us to add properties and methods without using inheritance, and it's provided by the <b>assign()</b>
+          function.
+        </p>
+        <p><b>bind(this)</b> is useful for using the "this" keyword when it would normally be out of the desired scope.</p>
+        <p><b>Borrowing functions</b> is useful for invoking methods on objects that don't have those methods.</p>
+        <p>
+          Using <b>for-of</b> syntax instead of for-each for arrays doesn't require a nested function, so "this" remains bound to 
+          the object.
+        </p>
+      </section>
+
+      <section>
+        <h4>Chapter 15</h4>
+        <div>
+          <p>
+            <b>Modularization </b>keeps code organized, reusable, and easily maintained. When writing modular code, we do the following:
+          </p>
+          <ul>
+            <li>We write our functions so that they only have one purpose and do only one thing.</li>
+            <li>We group modules of code together that have a similar purpose.</li>
+            <li>
+              We write <b>loosely coupled</b> or less dependent modules. This means that if I make a change to one method, I won't have
+              to make changes to another method that depends on the first method.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p>
+            We import and export methods and variables from .js files in order to keep our code modular. In order to import methods and
+            variables, they must have the export keyword.
+          </p>
+          <!-- HTML displayed as code snippet -->
+          <pre class='code'><code>
+  export const PI = 3.1415926;
+  >> from pi.js
+
+  import { PI } from './pi.js';
+  >> imports only PI
+
+  import * as pi from './pi.js';
+  >> imports all exported variables and methods
+          </code></pre>
+          <!-- HTML displayed as code snippet -->
+        </div>
+      </section>
+    </section>
+
+    <section>
+      <h2>Team Activity</h2>
+      <div class="ta">
+        <div id="btn-wrapper" class="ta">
+          <button id="reset" type="button">Reset</button>
+        </div>
+        <table>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <!-- HTML displayed as code snippet -->
+        <pre class='code'><code>
+  // turn tracker
+  let turn = 0; 
+
+  // get table node
+  let table = document.querySelector('table');  
+
+  // call putMark() when a cell is touched
+  table.addEventListener('touchend', event =>     
+    event.target.innerText = putMark(event.target.innerText)
+  ); 
+  
+  /******** PUT MARK FUNCTION **********/
+  function putMark(content) {
+    // check that there is not already an 'X' or 'O'
+    if(!content) {
+      let p1 = 'X';
+      let p2 = 'O';
+      turn++;
+      return (turn % 2 == 0 ? p2 : p1);
+    }
+    else {
+      alert('That square is occupied. Please choose another.');  
+      return content;
+    }
+  }
+  
+  // get node list of all td's 
+  let tds = document.querySelectorAll('td'); 
+  
+  // get reset button node
+  let resetBtn = document.querySelector('#reset');        
+
+  // call resetGame() when button is pressed  
+  resetBtn.addEventListener('touchend', () => resetGame());  
+  
+  
+  /********* RESET GAME FUNCTION *********/
+  function resetGame() {
+    tds.forEach(td => td.innerText = '');
+    turn = 0;
+  }          
+        </code></pre>
+        <!-- HTML displayed as code snippet -->
+      </div>
+    </section>
+  </main>
+
+  <nav>
+    <a id="back-btn" href="../index.html">Back</a>
+  </nav>
+  <script src="../scripts/week4.js"></script>
 </body>
 
 </html>
