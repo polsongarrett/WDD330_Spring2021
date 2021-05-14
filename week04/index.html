@@ -214,45 +214,36 @@
         <pre class='code'><code>
   // turn tracker
   let turn = 0; 
-
+  
   // get table node
-  let table = document.querySelector('table');  
-
-  // call putMark() when a cell is touched
-  table.addEventListener('touchend', event =>     
-    event.target.innerText = putMark(event.target.innerText)
+  let table = document.querySelector('table');          
+  
+  // table.addEventListener('touchend', event =>                   
+  //   event.target.innerText = putMark(event.target.innerText)
+  // ); 
+  
+  table.addEventListener('touchend', event => {              
+      // check that there is not already an 'X' or 'O'
+      if (!event.target.innerText) {
+        turn++;
+        event.target.innerText = (turn % 2 == 0 ? "O" : "X");
+      }
+      else {
+        alert('That square is occupied. Please choose another.');
+      }
+    }
   ); 
   
-  /******** PUT MARK FUNCTION **********/
-  function putMark(content) {
-    // check that there is not already an 'X' or 'O'
-    if(!content) {
-      let p1 = 'X';
-      let p2 = 'O';
-      turn++;
-      return (turn % 2 == 0 ? p2 : p1);
-    }
-    else {
-      alert('That square is occupied. Please choose another.');  
-      return content;
-    }
-  }
-  
-  // get node list of all td's 
-  let tds = document.querySelectorAll('td'); 
+  // get node list of all td's
+  let tds = document.querySelectorAll('td');       
   
   // get reset button node
-  let resetBtn = document.querySelector('#reset');        
-
-  // call resetGame() when button is pressed  
-  resetBtn.addEventListener('touchend', () => resetGame());  
+  let resetBtn = document.querySelector('#reset');          
   
-  
-  /********* RESET GAME FUNCTION *********/
-  function resetGame() {
+  resetBtn.addEventListener('touchend', () => {
     tds.forEach(td => td.innerText = '');
     turn = 0;
-  }          
+  });        
         </code></pre>
         <!-- HTML displayed as code snippet -->
       </div>

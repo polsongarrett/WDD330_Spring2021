@@ -1,35 +1,21 @@
 let turn = 0; // turn tracker
 
-let table = document.querySelector('table');               // get table node
-table.addEventListener('touchend', event =>                // call putMark() when a cell is touched   
-  event.target.innerText = putMark(event.target.innerText)
-); 
-
-/************ PUT MARK FUNCTION **************/
-function putMark(content) {
+let table = document.querySelector('table');       // get table node
+table.addEventListener('touchend', event => {      // call putMark() when a cell is touched   
   // check that there is not already an 'X' or 'O'
-  if(!content) {
-    let p1 = 'X';
-    let p2 = 'O';
+  if (!event.target.innerText) {
     turn++;
-    return (turn % 2 == 0 ? p2 : p1);
+    event.target.innerText = (turn % 2 == 0 ? "O" : "X");
   }
   else {
     alert('That square is occupied. Please choose another.');
-    return content;
   }
-}
+}); 
 
-let tds = document.querySelectorAll('td');                // get node list of all td's
-let resetBtn = document.querySelector('#reset');          // get reset button node
-resetBtn.addEventListener('touchend', () => resetGame()); // call resetGame() when button is pressed
+let tds = document.querySelectorAll('td');         // get node list of all td's
+let resetBtn = document.querySelector('#reset');   // get reset button node
 
-
-/************ RESET GAME FUNCTION **************/
-function resetGame() {
+resetBtn.addEventListener('touchend', () => {
   tds.forEach(td => td.innerText = '');
   turn = 0;
-}
-
-
-
+});
