@@ -16,6 +16,49 @@
     <section>
       <h2>Notes/Code Examples</h2>
       <h3>JavaScript: Novice to Ninja, 2nd Edition</h3>
+
+      <section>
+        <h4>Chapter 9</h4>
+        <p>
+          <b>Linting tools</b> can be found on the web for testing your code for errors and sloppy coding practices, although I find
+          many of these tools to be too picky and opinionated.
+        </p>
+        <p>
+          Two tools for <b>feature detection</b> include <b>Modernizr,</b> a library, and <b>caniuse.com,</b> which tells you which 
+          features are currently supported in different browsers.
+        </p>
+        <p>
+          I use console.log frequently for debugging, but there's also <b>console.trace,</b> which outputs the stack trace to the console.
+        </p>
+        <p>JavaScript has some built-in <b>Error objects</b> that the browser will throw when different kinds of exceptions occur.</p>
+        <p>
+          I've always been taught that <b>Test-driven development (TDD)</b> is considered best practice, but sometimes it can get in the 
+          way if we always put it first, no matter what.
+        </p>
+        <p>
+          There are many testing frameworks for JavaScript, but this author focuses on using <b>Jest.</b> Though they don't go into it,
+          it seems that you first need to install Node.js and npm, then you can install Jest. After installing Jest, here's an example 
+          from the book showing how to test some code with Jest:
+        </p>
+        <!-- HTML displayed as code snippet -->
+        <pre class='code'><code>
+  function (number) {
+    if (number < 0) {
+        throw new RangeError("You can't find the square root of negative numbers")  
+    }
+    return Math.sqrt(number);
+  };
+
+  test('square root of 4 is 2', () => {
+    expect(squareRoot(4)).toBe(2);
+  });
+        </code></pre>
+        <!-- HTML displayed as code snippet -->
+      </section>
+    </section>
+
+    <section>
+      <h2>Team Activity</h2>
     </section>
   </main>
 
