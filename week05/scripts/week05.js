@@ -69,6 +69,7 @@ function renderOneHike(hike) {
               <h3>Difficulty</h3>
               <p>${hike.difficulty}</p>
           </div>
+          <p>Click picture to view details.</p>
         </div>`;
 
   item.addEventListener('touchend', function() {
