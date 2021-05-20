@@ -41,25 +41,20 @@ window.addEventListener("load", () => {
 function showHikeList() {
 
   const hikeListElement = document.getElementById("hikes");
-
   hikeListElement.innerHTML = "";
-
   renderHikeList(hikeList, hikeListElement);
 }
 
-function renderHikeList(hikes, parent) {
+function renderHikeList(hikeList, hikeListElement) {
 
-  hikes.forEach(hike => {
-    parent.appendChild(renderOneHike(hike));
+  hikeList.forEach(hike => {
+    hikeListElement.appendChild(renderOneHike(hike, hikeListElement));
   });
 }
 
 function renderOneHike(hike) {
 
-
   const item = document.createElement("li");
-  item.addEventListener('touchend', showHikeDetails, hike);
-
   item.innerHTML = ` <h2>${hike.name}</h2>
         <div class="image">
           <img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}">
@@ -76,10 +71,37 @@ function renderOneHike(hike) {
           </div>
         </div>`;
 
+  item.addEventListener('touchend', function() {
+    showHikeDetails(hike, item);
+  });
   return item;
 }
 
 function showHikeDetails(hike) {
-  const hikeListElement = document.getElementById("hikes");
-  hikeListElement.innerHTML = "";
+
+  let hikeListElement = document.getElementById("hikes");
+  hikeListElement.innerHTML = '';
+  hikeListElement.appendChild(renderOneHike(hike, hikeListElement));
+  hikeListElement.appendChild(renderHikeDetails(hike));
+}
+
+function renderHikeDetails(hike) {
+  const details = document.createElement("li");
+  details.innerHTML = 
+    `   
+      <div class="details">
+        <div>
+          <h3>Description</h3>
+          <p>${hike.description}</p>
+        </div>
+        <div>
+          <h3>Directions</h3>
+          <p>${hike.directions}</p>
+        </div>
+        <div>
+          <a class="center" href="teamActivity.html">Hide Details</a>
+        </div>
+      </div>
+    `;
+  return details;
 }
