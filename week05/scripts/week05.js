@@ -1,4 +1,4 @@
-import { Hike } from '/hike.js'
+import { Hike } from '../hike.js'
 
 const hikeList = [
   new Hike(
