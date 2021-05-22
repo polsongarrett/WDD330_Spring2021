@@ -1,0 +1,36 @@
+div {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  max-width: 100%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+table {
+  width: 350px;
+}
+
+#input {
+  margin-top: 50px;
+}
+
+.input, .delete {
+  text-align: right;
+}
+
+td.input {
+  width: 10px;
+}
+
+#new-task {
+  width: 100%
+}
+
+.input-td {
+  text-align: right;
+}
+
+.filter-td {
+  text-align: right;
+}

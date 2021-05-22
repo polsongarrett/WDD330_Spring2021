@@ -4,16 +4,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Midterm</title>
+  <link rel="stylesheet" href="styles/todo.css">
 </head>
 <body>
-  <h1>To Do:</h1>
-  <table></table>
+  <main>
+    <div>
+      <h1>To Do:</h1>
+      <table id='todo'></table>
+    </div>
+    
+    <div id="input">
+      <table>
+        <tr>
+          <td class="input-td"><input type="text" id="new-task" name="new-task"></td>
+          <td id="add-btn-td" class="input-td"><button type="button" id="add-task">Add Task</button></td>
+        </tr>
+      </table>
+    </div>
+    
+    <div id="filters">
+      <table>
+        <tr class="filter-row">
+          <td id="count"></td>
+          <td class="filter-td"><button id="all">All</button></td>
+          <td class="filter-td"><button id="active">Active</button></td>
+          <td class="filter-td"><button id="complete">Complete</button></td>
+        </tr>
+      </table>
+    </div>
 
-  <form>
-    <input type="text" id="new-task" name="new-task">
-    <button type="button" id="add-task">Add Task</button>
-  </form>
-  <script type="module" src="helpers.js"></script>
+  </main>
+
+  <script type="module" src="./scripts/helpers.js"></script>
 </body>
 </html>
