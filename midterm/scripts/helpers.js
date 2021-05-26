@@ -6,7 +6,10 @@ let addInput = document.querySelector('#add-task');
 let allFilter = document.querySelector('#all');
 let activeFilter = document.querySelector('#active');
 let completeFilter = document.querySelector('#complete');
+let countType = document.querySelector('#count-type');
 let count = document.querySelector('#count');
+let invalid = document.querySelector('#invalid-input-td');
+let status = "All";
 
 displayTodoList();
 
@@ -14,6 +17,7 @@ displayTodoList();
  * ALL FILTER EVENT LISTENER
  ****************************************************************/
 allFilter.addEventListener('touchend', () => {
+  status = "All";
   displayTodoList();
 });
 
@@ -21,6 +25,7 @@ allFilter.addEventListener('touchend', () => {
  * ACTIVE FILTER EVENT LISTENER
  ****************************************************************/
 activeFilter.addEventListener('touchend', () => {
+  status = "Active";
   displayTodoList(true);
 });
 
@@ -28,6 +33,7 @@ activeFilter.addEventListener('touchend', () => {
  * COMPLETE FILTER EVENT LISTENER
  ****************************************************************/
 completeFilter.addEventListener('touchend', () => {
+  status = "Completed"
   displayTodoList(false);
 });
 
@@ -45,6 +51,8 @@ addInput.addEventListener('touchend', () => {
 function addListenersToDeleteButtons() {
   
   let del = document.querySelectorAll('.delete');
+
+ // foreach loop on the node list
   del.forEach(btn => {
     btn.addEventListener('touchend', event => {
       removeTodoItemFromLocalStorage(event.target);
@@ -53,12 +61,16 @@ function addListenersToDeleteButtons() {
   });
 }
 
+// create function adds the listeners to the delete buttons
+//   foreach loop on the node list
+// define listener to call remove todo item function
+
 /*****************************************************************
  * ADD LISTENERS TO CHECKBOXES
  ****************************************************************/
 function addListenersToCheckboxes() {
 
-  let cb = document.querySelectorAll("input[type='checkbox']");
+  let cb = document.querySelectorAll("input[type='checkbox']"); 
   cb.forEach(element => {
     element.addEventListener('click', event => {
       markAsCompleteIncomplete(event);
@@ -73,34 +85,36 @@ function displayTodoList(filterForActive) {
   
   let todoListBucket = JSON.parse(localStorage.getItem("todoList"));
 
-  // get a new array based on filter paramter
+  // Set array to empty if nothing is in local storage
+  if(todoListBucket == undefined) {
+    todoListBucket = []
+  }
+
+  // Get a new array based on filter paramter
+  // Set task count type 
   switch(filterForActive) {
     case undefined:
-      count.innerText = "Total tasks:";
+      countType.innerText = status + " tasks:";
       break;
 
     case true:
       todoListBucket = todoListBucket.filter(todoItem => {
         return (todoItem.Completed == false)
       });
-      count.innerText = "Active tasks:";
+      countType.innerText = status + " tasks:";
       break;
       
     case false:
       todoListBucket = todoListBucket.filter(todoItem => {
         return (todoItem.Completed == true)
       });
-      count.innerText = "Completed tasks:";
+      countType.innerText = status + " tasks:";
       break;
-  }
-
-  if(todoListBucket == undefined) {
-    todoListBucket = []
   }
 
   table.innerHTML = '';
   let sum = 0;
-
+  // Display todo items
   todoListBucket.forEach((todoItem, index) => {
     table.innerHTML +=
       `
@@ -113,7 +127,10 @@ function displayTodoList(filterForActive) {
     sum++;
   });
   
-  count.innerText += (' ' + sum);
+  // Set task count number
+  count.innerText = sum;
+
+  // Refresh listeners
   addListenersToDeleteButtons();
   addListenersToCheckboxes();
   handleCheckboxes(todoListBucket);
@@ -125,8 +142,20 @@ function displayTodoList(filterForActive) {
 function addTodoItemToLocalStorage() {
   
   let todoItem = new Todo(input.value);
-  let todoListBucket = localStorage.getItem("todoList");
 
+  // Validate input
+  // Do not let user submit an empty input
+  if (todoItem.Content == "") {
+    invalid.innerText = "You can't create a blank task!";
+    return;
+  }
+  else {
+    invalid.innerText = "";
+  }
+
+  let todoListBucket = localStorage.getItem("todoList");
+  // Add item to local storage
+  // Determine if local storage is empty
   if(todoListBucket == undefined) {
     todoListBucket = []
     todoListBucket.push(todoItem);
@@ -137,6 +166,7 @@ function addTodoItemToLocalStorage() {
     todoListBucket.push(todoItem);
     localStorage.setItem("todoList", JSON.stringify(todoListBucket));
   }
+  // Empty input field
   input.value = '';
 }
 
@@ -145,17 +175,18 @@ function addTodoItemToLocalStorage() {
  ****************************************************************/
 function removeTodoItemFromLocalStorage(target) {
 
-  let todoListBucket = JSON.parse(localStorage.getItem("todoList"));
-  let todoItemRow = target.parentNode.parentNode;
+  let todoListBucket = JSON.parse(localStorage.getItem("todoList")); // get list from localstorage
+  let todoItemRow = target.parentNode.parentNode;                    
   let todoItemId = todoItemRow.classList[0];
-  todoItemRow.parentNode.removeChild(todoItemRow);
 
+  // modify the array
   todoListBucket.some((todoItem, index) => {
     if(todoItem.Id == todoItemId) {
       todoListBucket.splice(index, 1);
     }
   });
 
+  // set localstorage = to the new array
   localStorage.setItem("todoList", JSON.stringify(todoListBucket));
 }
 
@@ -171,10 +202,22 @@ function markAsCompleteIncomplete(event) {
   if(cb.checked) {
     nextSibling.style.textDecorationLine = 'line-through';
     setAsCompleteIncomplete(currentTd.classList[0], true);
+
+    // Update count 
+    if(status == "Active") {
+      currentTd.parentNode.remove();
+      count.innerText = (Number(count.innerText)-1);
+    }
   }
   else {
     nextSibling.style.textDecorationLine = 'none';
     setAsCompleteIncomplete(currentTd.classList[0], false);
+
+    // Update count 
+    if(status == "Completed") {
+      currentTd.parentNode.remove();
+      count.innerText = (Number(count.innerText)-1);
+    }
   }
 }
 

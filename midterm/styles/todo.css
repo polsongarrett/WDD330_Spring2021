@@ -11,26 +11,31 @@ table {
   width: 350px;
 }
 
-#input {
+#input-div {
   margin-top: 50px;
 }
 
-.input, .delete {
+#count {
+  text-align: left;
+}
+
+#task-text-td {
   text-align: right;
 }
 
-td.input {
-  width: 10px;
+#task-text {
+  width: 100%; 
+  box-sizing: border-box;
 }
 
-#new-task {
-  width: 100%
+td.input, #count-type {
+  text-align: left;
+  width: 0.1%;
+  white-space: nowrap;
 }
 
-.input-td {
+#add-btn-td, .filter-btn-td, .input, .delete {
   text-align: right;
-}
-
-.filter-td {
-  text-align: right;
+  width: 0.1%;
+  white-space: nowrap;
 }

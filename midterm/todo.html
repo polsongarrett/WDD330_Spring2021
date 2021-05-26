@@ -14,10 +14,11 @@
       <table id='todo'></table>
     </div>
     
-    <div id="input">
+    <div id="input-div">
       <table>
+        <tr><td id="invalid-input-td"></td></tr>
         <tr>
-          <td class="input-td"><input type="text" id="new-task" name="new-task"></td>
+          <td id="task-text-td"><input type="text" id="task-text" name="new-task"></td>
           <td id="add-btn-td" class="input-td"><button type="button" id="add-task">Add Task</button></td>
         </tr>
       </table>
@@ -26,10 +27,11 @@
     <div id="filters">
       <table>
         <tr class="filter-row">
+          <td id="count-type"></td>
           <td id="count"></td>
-          <td class="filter-td"><button id="all">All</button></td>
-          <td class="filter-td"><button id="active">Active</button></td>
-          <td class="filter-td"><button id="complete">Complete</button></td>
+          <td class="filter-btn-td"><button id="all">All</button></td>
+          <td class="filter-btn-td"><button id="active">Active</button></td>
+          <td class="filter-btn-td"><button id="complete">Complete</button></td>
         </tr>
       </table>
     </div>
