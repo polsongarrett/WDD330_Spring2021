@@ -1,7 +1,7 @@
 import { Todo } from './Todo.js';
 
 let table = document.querySelector('table');
-let input = document.querySelector('#new-task');
+let input = document.querySelector('#task-text');
 let addInput = document.querySelector('#add-task');
 let allFilter = document.querySelector('#all');
 let activeFilter = document.querySelector('#active');
