@@ -98,16 +98,12 @@ function displayTodoList(filterForActive) {
       break;
 
     case true:
-      todoListBucket = todoListBucket.filter(todoItem => {
-        return (todoItem.Completed == false)
-      });
+      todoListBucket = todoListBucket.filter(todoItem => !todoItem.Completed);
       countType.innerText = status + " tasks:";
       break;
       
     case false:
-      todoListBucket = todoListBucket.filter(todoItem => {
-        return (todoItem.Completed == true)
-      });
+      todoListBucket = todoListBucket.filter(todoItem => todoItem.Completed);
       countType.innerText = status + " tasks:";
       break;
   }
@@ -231,14 +227,14 @@ function setAsCompleteIncomplete(itemId, isComplete) {
   if(isComplete) {
     todoListBucket.some((todoItem) => {
       if (todoItem.Id == itemId) {
-        todoItem.Completed = true;
+        todoItem.Completed = isComplete;
       }
     });  
   }
   else {
     todoListBucket.some((todoItem) => {
       if (todoItem.Id == itemId) {
-        todoItem.Completed = false;
+        todoItem.Completed = isComplete;
       }
     });  
   }
