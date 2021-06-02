@@ -5,12 +5,247 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/week.css">
   <title>Week 07</title>
 </head>
 
 <body>
-  <h1>Week 07</h1>
+  <main>
+    <h1>Week 07</h1>
 
+    <section>
+      <h2>Notes/Code Examples</h2>
+      <h3>JavaScript: Novice to Ninja, 2nd Edition</h3>
+  
+      <section>
+        <h4>Chapter 11</h4>
+        <p>
+          Functions have methods and properties. <b>call()</b> can set the value of 'this' inside a function to an object that is 
+          provided as the first argument.
+        </p>
+        <!-- HTML displayed as code snippet -->
+        <pre class='code'><code>
+  function sayHello(){
+    return `Hello, my name is ${ this.name }`;  
+  }
+
+  const jeff = { name: 'Jeff' };
+  const geoff = { name: 'Geoff' };
+
+  sayHello.call(jeff);
+  << 'Hello, my name is Jeff'
+
+  sayHello.call(geoff);
+  << 'Hello, my name is Geoff'
+        </code></pre>
+        <!-- HTML displayed as code snippet -->
+
+        <p>
+          If the function requires any parameters, they are provided as arguments after the first 'this' argument. 
+        </p>
+        <!-- HTML displayed as code snippet -->
+        <pre class='code'><code>
+  function sayHello(greeting='Hello'){
+    return `${ greeting }, my name is ${ this.name }`;  
+  }
+
+  sayHello.call(jeff, 'How do you do');
+  << 'How do you do, my name is Jeff'
+
+  sayHello.call(geoff);
+  << 'Hello, my name is Geoff'
+        </code></pre>
+        <!-- HTML displayed as code snippet -->
+
+        <p>
+          You can still use call() with a function that doesn't use "this", but you must use "null" for the first argument. <b>apply()</b> is 
+          similar to call() except the argument is provided as an array, even if it's one element.
+        </p>
+        <p>
+          <b>Memoization</b> is a technique for caching the result of a function so that it can be retrieved later. It saves computing resources
+          by reducing the number of times a function must process the same data. JavaScript functions have the <b>cache</b> property for this 
+          purpose, and it's accessed as if it were an array using name-value pairs.
+        </p>
+        <!-- HTML displayed as code snippet -->
+        <pre class='code'><code>
+  function square(x){
+    square.cache = square.cache || {};  
+    if (!square.cache[x]) {
+        square.cache[x] = x*x;
+    }
+    return square.cache[x]
+  }
+
+  square(3);
+  << 9
+
+  square(-11);
+  << 121
+
+  square.cache;
+  << {"3": 9, "-11": 121}
+        </code></pre>
+        <!-- HTML displayed as code snippet -->
+
+        <p>
+          <b>Immediately Invoked Function Expressions (IIFE)</b> are functions that are invoked as soon as they are defined. They are useful for 
+          creating <b>temporary variables</b> and <b>initialization code</b> that only gets ran once.
+        </p>
+        <p>
+          <b>Init-Time Branching</b> uses the method of <b>rewriting functions</b> to reduce computing resources. For example, this enables 
+          functions to work more effectively in the browser and avoid checking for features every time they’re invoked.
+        </p>
+        <p><b>Recursive functions</b> call themselves until a condition is met.</p>
+        <p><b>Promises</b> are like <b>callbacks</b>, but they can help keep the code more simple when multiple callbacks are used.</p>
+        <p>
+          <b>Async functions</b> are executed asynchronously. Using the <b>await operator</b> before a function call will make sure no more 
+          code is executed until the function call is resolved.
+        </p> 
+        <!-- HTML displayed as code snippet -->
+        <pre class='code'><code>
+  async function loadGame(userName) {
+    try {
+        const user = await login(userName);
+        const info = await getPlayerInfo (user.id);  
+        // load the game using the returned info
+    }
+    catch (error){
+        throw error;
+    }
+  }
+        </code></pre>
+        <!-- HTML displayed as code snippet -->
+
+        <p>Functions can return functions.</p>
+        <!-- HTML displayed as code snippet -->
+        <pre class='code'><code>
+  function greeter(greeting = 'Hello') {
+    return function() {
+        console.log(greeting);
+    }
+  }
+
+  const englishGreeter = greeter();
+  englishGreeter();
+  << Hello
+
+  const frenchGreeter = greeter('Bonjour');
+  frenchGreeter();
+  << Bonjour
+
+  const germanGreeter = greeter('Guten Tag');  
+  germanGreeter();
+  << Guten Tag
+        </code></pre>
+        <!-- HTML displayed as code snippet -->
+
+        <p>
+          <b>Closures</b> are references to variables only available in the scope of a function, but then "kept alive" and used in another part 
+          of the program. This is done by defining a function within another function. The inner function will have access to variables declared
+          in the outer function's scope.
+        </p>
+        <p>
+          Another example of a closure is returning the inner function, which grants the outer function access to the inner function's variables.
+        </p>
+        <p>
+          A <b>generator</b> is a function that returns a Generator object used for iteration. It doesn't run any code inside the function itself.
+          Every time the iterator’s <b>next()</b> method is called, the code inside the loop is run, and the next value is calculated. The 
+          difference between the <b>yield</b> and the return keywords is that by using yield, the state of the value returned is remembered the 
+          next time yield is called.
+        </p>
+        <!-- HTML displayed as code snippet -->
+        <pre class='code'><code>
+  function* fibonacci(a,b) {
+    let [ prev,current ] = [ a,b ];
+    while(true) {
+        [prev, current] = [current, prev + current];  
+        yield current;
+    }
+  }
+
+  const sequence = fibonacci(1,1);
+
+  sequence.next();
+  << 2
+
+  sequence.next();
+  << 3
+
+  sequence.next();
+  << 5
+        </code></pre>
+        <!-- HTML displayed as code snippet -->
+
+        <p>
+          <b>Functional programming</b> is a recently-emerging programming paradigm based on <b>pure functions,</b> which adhere to these rules:
+        </p>
+        <ol>
+          <li>
+            The return value of a pure function should only depend on the values provided as arguments. It doesn't rely on values from somewhere 
+            else in the program.
+          </li>
+          <li>
+            A pure function doesn't change any values or data elsewhere in the program. It only makes non-destructive data transformations and 
+            returns new values, rather than altering any of the underlying data.
+          </li>
+          <li>
+            Referential transparency. Given the same arguments, a pure function will always return the same result.
+          </li>
+        </ol>
+        <p>To follow the above rules, pure functions must do the following:</p>
+        <ul>
+          <li>
+            Have at least one argument; otherwise the return value must depend on something other than the arguments of the function, breaking 
+            the first rule.
+          </li>
+          <li>
+            Have a return value; otherwise there’s no point in the function (unless it has changed something else in the program – in which case, 
+            it’s broken the 'no side-effects' rule).
+          </li>
+        </ul>
+
+        <p>
+          <b>Higher-order functions</b> are functions that accept another function as an argument, or return another function as a result, 
+          or both. Closures are used in high-order functions to create generic functions that can be used to return more specific functions.
+        </p>
+        <!-- HTML displayed as code snippet -->
+        <pre class='code'><code>
+  function multiplier(x){
+    return function(y){
+        return x*y;
+    }
+  }
+
+  doubler = multiplier(2);
+
+  doubler(10);
+  << 20
+        </code></pre>
+        <!-- HTML displayed as code snippet -->
+
+        <p>
+          When a higher-order function returns another function, we can create an anonymous return function and immediately invoke it with a 
+          value by using double parentheses. 
+        </p>
+        <!-- HTML displayed as code snippet -->
+        <pre class='code'><code>
+  multiplier(3)(5);
+  << 15
+        </code></pre>
+        <!-- HTML displayed as code snippet -->
+      </section>
+
+      <p><b>Currying</b> is a process that involves the partial application of functions. A function is curried when not all arguments have 
+        been supplied to the function, so it returns another function that retains the arguments already provided, and expects the remaining 
+        arguments that were omitted when the original function was called. A final result is only returned once all the expected arguments 
+        have eventually been provided.
+      </p>
+    </section>
+  </main>
+
+  <nav>
+    <a id="back-btn" href="../index.html">Back</a>
+  </nav>
 </body>
 
 </html>
