@@ -64,6 +64,13 @@ nav {
   margin-bottom: 20px;
 }
 
+.center {
+  display: block;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%
+}
+
 /* scrollbar */
 ::-webkit-scrollbar {
   width: 0px !important;
