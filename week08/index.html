@@ -5,12 +5,71 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/week.css">
   <title>Week 08</title>
 </head>
 
 <body>
-  <h1>Week 08</h1>
+  <main>
+    <h1>Week 08</h1>
 
+    <section>
+      <h2>Notes/Code Examples</h2>
+      <h3>HTML5 & CSS3 for the Real World: 2nd Edition</h3>
+  
+      <section>
+        <h4>Chapter 8</h4>
+        <p>
+          CSS3 possesses the <b>transform</b> property, which allows us to use <b>transform functions</b> to rotate, translate, 
+          scale, and skew elements. This property also lets us change the <b>transform-origin</b> of an element.
+        </p>
+        <p>
+          <b>Transitions</b> are useful for gradually changing an element over time. This property has control over the start
+          and finish of a transition, but not the intermediate states.
+        </p>
+        <p>
+          <b>Animations</b> have an advantage over transitions in that they can control the intermediate transitions using 
+          <b>keyframes.</b>
+        </p>
+      </section>
+
+      <section>
+        <h4>Chapter 12</h4>
+        <p>
+          The <b>Canvas API</b> is meant for drawing images with JavaScript by manipulating pixels. It can improve performance by 
+          decreasing the amount of downloaded resources such as images and videos. Images can be drawn in 2D and 3D by combining
+          WebGL with HTML5 Canvas. We can also add image files, video files, and text to canvas elements.
+        </p>        
+        <p>
+          <b>Standard Vector Graphics (SVG)</b> is a file format for describing vector graphics using XML. <b>Inkscape</b> is useful
+          for creating SVGs in order to avoid having to tediously create an image from code. A JavaScript library called 
+          <b>Raphaël</b> makes drawing and animating with SVG more convenient.
+        </p>
+        <p>
+          Canvas operates in <b>immediate mode,</b> meaning that once a shape is drawn, it can't be modified again because it does
+          not persist as an object. It's also unavailable in the DOM. However, it can be saved as a PNG or JPEG, and it is faster 
+          than SVG.
+        </p>
+        <p>
+          SVG operates in <b>retained mode,</b> meaning it is preserved because of the XML file in which it has been defined. SVG
+          is accessible in the DOM, and it has tools like Raphaël and Inkscape. However, SVGs can't be manipulated the same way
+          as pixels on canvas.
+        </p>
+        <p>
+          The <b>Drag and Drop API</b> lets us define elements as draggable and how they interact with other elements when dragged or
+          dropped over them.
+        </p>
+      </section>
+
+      <section>
+        <h2>Team Activity</h2>
+  
+      </section>
+    </section>
+  </main>
+
+  <nav>
+    <a id="back-btn" href="../index.html">Back</a>
+  </nav>
 </body>
-
 </html>
