@@ -38,14 +38,11 @@ function loadList(url){
         });
 }
 
-// loadList("https://swapi.dev/api/people")
-loadList("//swapi.dev/api/people")
+loadList("https://swapi.dev/api/people")
 
 document.querySelector('#goTo').addEventListener('touchend', () => {
     const page = document.querySelector('#pageSkip').value
-    // loadList("https://swapi.dev/api/people/?page="+page)
-    loadList("//swapi.dev/api/people/?page="+page)
-    
+    loadList("https://swapi.dev/api/people/?page="+page)
 })
 
 
