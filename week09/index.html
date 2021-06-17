@@ -15,12 +15,75 @@
 
     <section>
       <h2>Notes/Code Examples</h2>
-      <h3>Textbook</h3>
+      <h3>HTML5 & CSS3 for the Real World: 2nd Edition</h3>
   
       <section>
-        <h4>Chapter</h4>
+        <h4>Chapter 9</h4>
+        <p>The <b>window.location property</b> contains the following information about the current window:</p>
+        <ul>
+          <li>href</li>
+          <li>protocol</li>
+          <li>host</li>
+          <li>port</li>
+          <li>pathname</li>
+          <li>search</li>
+          <li>hash</li>
+          <li>origin</li>
+        </ul>
+        <p>The <b>window.history</b> property has useful information and methods to access the user's browsing history.</p>
+        <p>The <b>window.screen </b> property stores information about the browser window.</p>
+        <p>
+          The window document has the <b>cookie</b> property, which is useful for peronalizing user experience. The cookie property has 
+          several useful methods and properties.
+        </p>
+        <p>
+          The window object also provides <b>timeout, interval, and animation</b> methods, but use CSS for animation effects when possible.
+        </p>
       </section>
+      
+      <section>
+        <h4>Chapter 11</h4>
+        <p>
+          The <b>data-</b> attribute can be assigned to an element and hold custom information. It is only meant to be used with JavaScript.
+        </p>
 
+        <!-- HTML displayed as code snippet -->
+        <pre class='code'><code>
+  &lt;div id='hero' data-powers='flight superSpeed'&gt;
+    Superman
+  &lt;/div&gt;  
+
+  const superman = document.getElementById('hero');
+  const powers = superman.dataset.powers;
+  << 'flight superSpeed'
+        </code></pre>
+        <!-- HTML displayed as code snippet -->
+
+        <p>HTML5 currently has some APIs that make some tasks easier for developers:</p>
+        <ul>
+          <li><b>Web Storage:</b> Allows the browser to store information in localstorage and session storage.</li>
+          <li><b>Geolocation:</b> Can obtain the grographical location of a device.</li>
+          <li><b>Web Workers:</b> Allows multiple processes to work in the background.</li>
+          <li>
+            <b>Service Workers:</b> Lets a worker script to run in the background while being able to intercept network requests. 
+            This allows users to still interact with the application if the network is offline. 
+          </li>
+          <li>
+            <b>Websockets:</b> HTTP protocol only sends responses to requests, so if you had a chat app that worked this way, you could only
+            responses if you texted first. Websockets allow constant two-way communication so that a connection is kept open.
+          </li>
+          <li><b>Notifications:</b> Lets the application display messages via the operating system.</li>
+          <li>
+            <b>Multimedia:</b> HTML5 introduced the &lt;audio&gt; and &lt;video&gt; tags for inserting media on a page, as well as a 
+            <b>Media API</b> for playing back videos using JavaScript.
+          </li>
+        </ul>
+        <p>
+          <b>Shims and polyfills</b> are libraries of code that allow you to use the APIs on browsers that don't support them. 
+          They fill in the necessary code that's not provided natively by the user’s browser. 
+        </p>
+      </section>
+      
       <section>
         <h2>Team Activity</h2>
       </section>
