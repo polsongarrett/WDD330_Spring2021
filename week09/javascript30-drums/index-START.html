@@ -66,8 +66,13 @@
     key.addEventListener("touchend", () => {
       let audio = document.querySelector(`audio[data-key='${key.getAttribute("data-key")}']`);
       key.className="key playing";
+      key.style.transform+="translateY(10px)";
       audio.currentTime = "0";
       audio.play();
+
+      if(key.style.transform.split(" ").length == 10) {
+        key.style.transform="";
+      }
 
       setTimeout( () => {
         key.className="key";
