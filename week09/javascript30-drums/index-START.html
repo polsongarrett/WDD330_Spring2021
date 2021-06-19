@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../../styles/week.css">
 </head>
 <body>
 
@@ -57,6 +58,10 @@
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
+  <nav>
+    <a id="back-btn" href="../index.html">Back</a>
+  </nav>
+
 <script>
   let keySet = document.querySelectorAll(".key");
   let udio = document.querySelector(`audio[data-key='65']`);
@@ -77,8 +82,8 @@
       setTimeout( () => {
         key.className="key";
       }, audio.duration * 1000 );
+    });
   });
-});
   
 </script>
 
