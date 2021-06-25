@@ -47,7 +47,9 @@ export default class QuakesController {
         
         this.quakesView.renderQuakeList(quakeList, this.parentElement);
         this.parentElement.addEventListener('touchend', e => {
-            this.getQuakeDetails(e.target.dataset.id);
+            if (e.target.localName === "li") {
+                this.getQuakeDetails(e.target.dataset.id);
+            }
         });
     }
     async getQuakeDetails(quakeId) {
@@ -56,6 +58,7 @@ export default class QuakesController {
         console.log(quake)
         this.quakesView.renderQuake(quake, document.querySelector('#quakeDetails'))
 
-        document.querySelector('#quakeDetails')
+        // document.querySelector('#quakeDetails')
+        document.querySelector('#quakeDetails').classList.remove('hide')
     }
 }

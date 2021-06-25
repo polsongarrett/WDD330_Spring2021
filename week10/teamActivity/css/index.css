@@ -1,5 +1,9 @@
 #quakeList li {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.quakeProperties {
+  margin-bottom: 100px;
 }
 
 #quakeDetails {
@@ -7,6 +11,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: white;
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  padding: 1rem;
+  overflow: hidden auto;
 }
 #quakeDetails.hide {
   display: none;
