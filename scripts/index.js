@@ -45,7 +45,7 @@ const links = [
   },
   {
     label: "Final",
-    url: "final/views/roll-prep.html"
+    url: "final/views/roll.html"
   }
 ];
 
