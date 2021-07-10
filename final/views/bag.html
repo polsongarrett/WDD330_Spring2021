@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <title>Manage | Dice App</title>
+</head>
+<body>
+  <header>
+    <h1>Dice App</h1>
+    <h2>Rummaging...</h2>
+  </header>
+
+  <main>
+    <!-- Table -->
+    <div class="tableDiv"> 
+      <table><tbody></tbody></table>
+    </div>
+
+    <!-- Add new die inputs -->
+    <div id="addDieInputsDiv" class="inputsTableDiv">
+      <table id="addModalTable">
+        <tbody>
+          <tr>
+            <td class="label">
+              Sides
+            </td>
+            <td class="input">
+              <input type="number" id="numSidesTradeInput" value='6' placeholder="Minimum value is 2" size="1" maxlength="1">
+            </td>
+          </tr>
+          <tr>
+            <td class="label">            
+              Color
+            </td>
+            <td class="input">
+              <input type="color" id="dieColorTradeInput" value="#ffffff">
+            </td>
+          </tr>
+          <tr>
+            <td class="label">
+              Number Color
+            </td>
+            <td class="input">
+              <input type="color" id="sidesColorTradeInput" value="#000000">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button id="addDieBtn">Add this die to my bag!</button> 
+    </div>
+
+    <div class="btnsDiv">
+      <!-- Link to roll.html -->
+      <a href="./roll.html" id="backToRollPrep">Finished. Let's roll some dice!</a>
+    </div>
+    
+    
+    <!-- Trade Modal -->
+    <div class="modal">
+      <div class="modalContent">
+
+        <span class="close">&times;</span>
+        <div id="tradeDieDiv" data-id=''></div>
+        
+        <div class="inputsTableDiv">
+          <table id="tradeModalTable">
+            <tbody>
+              <tr>
+                <td class="label">
+                  Sides
+                </td>
+                <td class="input">
+                  <input type="number" id="numSidesTradeInput" value='6' placeholder="Minimum value is 2" size="1" maxlength="1">
+                </td>
+              </tr>
+              <tr>
+                <td class="label">            
+                  Color
+                </td>
+                <td class="input">
+                  <input type="color" id="dieColorTradeInput" value="#ffffff">
+                </td>
+              </tr>
+              <tr>
+                <td class="label">
+                  Number Color
+                </td>
+                <td class="input">
+                  <input type="color" id="sidesColorTradeInput" value="#000000">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <button id="tradeDieBtn">Trade now!</button>
+
+      </div>
+      
+    </div>
+  </main>
+
+  <script type="module" src="../scripts/helpers.js"></script>
+</body>
+</html>

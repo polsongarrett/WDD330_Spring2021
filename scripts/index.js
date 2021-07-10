@@ -44,16 +44,8 @@ const links = [
     url: "week11/index.html"
   },
   {
-    label: "Week 12",
-    url: "week12/index.html"
-  },
-  {
-    label: "Week 13",
-    url: "week13/index.html"
-  },
-  {
-    label: "Week 14",
-    url: "week14/index.html"
+    label: "Final",
+    url: "final/views/roll-prep.html"
   }
 ];
 
