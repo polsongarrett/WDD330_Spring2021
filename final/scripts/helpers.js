@@ -105,7 +105,7 @@ addListenerToModalCloseButton();
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
  *****************************************************************************/
-if(window.location.pathname == '/final/views/roll.html') {
+if(window.location.pathname == 'WDD330_Spring2021/final/views/roll.html') {
   addListenerToRollButton();
   displayDice(true);
 }
@@ -274,7 +274,7 @@ function rollDice() {
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
  *****************************************************************************/
- if(window.location.pathname == '/final/views/bag.html') {
+ if(window.location.pathname == 'WDD330_Spring2021/final/views/bag.html') {
   addListenerToAddDieButton();
   addListenerToTradeDieButton();
   displayDice(false);
