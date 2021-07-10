@@ -1,5 +1,4 @@
 import { Die } from './Die.js'
-console.log(window.location.pathname);
 addListenerToModalCloseButton();
 
 /******************************************************************************
