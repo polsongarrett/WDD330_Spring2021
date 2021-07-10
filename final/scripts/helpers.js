@@ -1,4 +1,5 @@
 import { Die } from './Die.js'
+console.log(window.location.pathname);
 addListenerToModalCloseButton();
 
 /******************************************************************************
@@ -244,7 +245,7 @@ function rollDice() {
 
   if(!diceRolls.length) {
     modal.style.display = 'block';
-    table.innerHTML += "<tr><td>No dice! You're just waving your hand...</td></tr>";
+    table.innerHTML += "<tr><td>Pick up some dice first! You're just waving your hand around...</td></tr>";
     
     return;
   }
